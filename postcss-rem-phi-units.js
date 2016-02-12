@@ -106,7 +106,7 @@ module.exports = postcss.plugin('remphiunits', function remphiunits (options) {
 
 		// Convert the rest of the units
 		css.walkRules(function (rule) {
-			rule.walkDecls(function (decl, i) {
+			rule.walkDecls(function (decl) {
 				var value = decl.value;
 
 				/* This can't be implemented without a way to pass the current element's font size to the em calculation */
