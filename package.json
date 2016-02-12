@@ -13,11 +13,24 @@
     "url": "git://github.com/posthumans/postcss-rem-phi-units.git"
   },
   "scripts": {
-    "lint": "happiness ./postcss-rem-phi-units.js",
+    "lint": "npm-run-all lint:**",
+    "lint:eslint": "eslint ./postcss-rem-phi-units.js",
+    "lint:happiness": "happiness ./postcss-rem-phi-units.js",
     "test": "ava --verbose"
   },
   "devDependencies": {
     "happiness": "^5.5.0",
     "ava": "^0.11.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "node": true
+    }
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "happiness": "^5.5.0",
+    "npm-run-all": "^1.5.1"
   }
 }
