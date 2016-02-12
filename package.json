@@ -13,9 +13,11 @@
     "url": "git://github.com/posthumans/postcss-rem-phi-units.git"
   },
   "scripts": {
+    "lint": "happiness ./postcss-rem-phi-units.js",
     "test": "ava --verbose"
   },
   "devDependencies": {
+    "happiness": "^5.5.0",
     "ava": "^0.11.0"
   }
 }
