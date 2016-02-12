@@ -13,7 +13,7 @@
     "url": "git://github.com/posthumans/postcss-rem-phi-units.git"
   },
   "scripts": {
-    "test": "ava ./test"
+    "test": "ava --verbose"
   },
   "devDependencies": {
     "ava": "^0.11.0"

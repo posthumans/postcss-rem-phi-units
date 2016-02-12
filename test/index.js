@@ -6,7 +6,7 @@ postcss(require('../postcss-rem-phi-units.js'))
 	.process(fs.readFileSync('in.css'))
 	.then(function (result) {
 		// Ava tests
-		test(function (t) {
+		test('Settingless units', function (t) {
 			t.same(result.css, fs.readFileSync('expected.css', 'utf8'));
 		});
 	});
