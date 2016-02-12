@@ -1,6 +1,6 @@
 {
   "name": "postcss-rem-phi-units",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Extra units for easy rem and phi based layouts",
   "main": "postcss-rem-phi-units.js",
   "author": "Kezz Bracey",
