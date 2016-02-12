@@ -1,5 +1,5 @@
 {
-  "name": "postcss-units",
+  "name": "postcss-rem-phi-units",
   "version": "0.1.0",
   "description": "Extra units for easy rem and phi based layouts",
   "main": "postcss-rem-phi-units.js",
