@@ -18,7 +18,7 @@ width: 10rem;
 
 This gives you full control over exactly which values get converted into `rem` values, as sometimes `px` units are specifically needed.
 
-**Note:** If you prefer not to use the `\` character in your units you can change your options to use any conversion character you choose.
+**Note:** If you prefer not to use the `/` character in your units you can change your options to use any conversion character you choose.
 
 Alternatively you can just use the `px` unit alone and set the plugin to automatically convert all `px` values to `rem`.
 
