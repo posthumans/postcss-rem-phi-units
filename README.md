@@ -18,6 +18,8 @@ width: 10rem;
 
 This gives you full control over exactly which values get converted into `rem` values, as sometimes `px` units are specifically needed.
 
+**Note:** If you prefer not to use the `\` character in your units you can change your options to use any conversion character you choose.
+
 Alternatively you can just use the `px` unit alone and set the plugin to automatically convert all `px` values to `rem`.
 
 ## Using `phi` as a Unit
@@ -55,11 +57,13 @@ Options, including converting all `px` values to `rem`, can be set within your s
 
 ```css
 /* set to true to convert all px values to rem automatically */
-@remphiunits convert_all_px false;
+@remphiunits convert-all-px false;
 /* number of decimal places in rem values */
 @remphiunits precision 3;
 /* base font size rem values are calculated with */
-@remphiunits base_font_size 16;
+@remphiunits base-font-size 16;
+/* the character used for unit conversion, don't wrap in quotes, e.g. change / to -> */
+@remphiunits conversion-character ->;
 ```
 
 ## Installation
@@ -116,7 +120,7 @@ gulp.task('stylus', function () {
 
 ### Options
 
-#### `convert_all_px`
+#### `convert-all-px`
 
 Type: `Boolean`  
 Default: false
@@ -130,9 +134,15 @@ Default: 3
 
 Number of decimal places in rem values.
 
-#### `base_font_size`
+#### `base-font-size`
 
 Type: `Number`  
 Default: 16
 
 Base font size rem values are calculated with.
+
+#### `conversion-character`
+
+Default: /
+
+the character used for unit conversion, don't wrap in quotes, e.g. change / to ->
