@@ -1,14 +1,12 @@
-var test = require('ava');
-var postcss = require('postcss');
-var fs = require('fs');
+import test from 'ava';
+import plugin from '../postcss-rem-phi-units'
+import postcss from 'postcss';
+import { readFileSync } from 'fs';
 
-postcss(require('../postcss-rem-phi-units.js'))
-	.process(fs.readFileSync('in.css'))
-	.then(function (result) {
-		// Ava tests
-		test('Settingless units', function (t) {
-			t.same(result.css, fs.readFileSync('expected.css', 'utf8'));
-		});
-	});
-
-
+test('Settingless units', async t => {
+	postcss(plugin)
+		.process(readFileSync('in.css'))
+		.then(result =>
+			t.same(result.css, readFileSync('expected.css', 'utf8'))
+		);
+});
