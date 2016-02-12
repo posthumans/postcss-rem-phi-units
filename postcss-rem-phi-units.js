@@ -48,7 +48,9 @@ module.exports = postcss.plugin('remphiunits', function remphiunits(options) {
 		* Allow the options to be overridden with at rules
 		*
 		* @example
-		* 	@remphiunits convert_all_px true;
+		* 	@remphiunits convert_all_px false;
+		* 	@remphiunits precision 3;
+		* 	@remphiunits base_font_size 16;
 		*
 		* The above example would convert all uses of the px unit to a rem unit
 		*/
@@ -65,7 +67,7 @@ module.exports = postcss.plugin('remphiunits', function remphiunits(options) {
 				base_font_size = rule.params[1];
 			}
 
-			rule.removeSelf();
+			rule.remove();
 		});
 
 		// Setup conversion unit syntax and regex's we'll use later
