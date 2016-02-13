@@ -19,18 +19,15 @@
     "test": "ava --verbose"
   },
   "devDependencies": {
+    "ava": "^0.11.0",
+    "eslint": "^1.10.3",
     "happiness": "^5.5.0",
-    "ava": "^0.11.0"
+    "npm-run-all": "^1.5.1"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
     "env": {
       "node": true
     }
-  },
-  "devDependencies": {
-    "eslint": "^1.10.3",
-    "happiness": "^5.5.0",
-    "npm-run-all": "^1.5.1"
   }
 }
