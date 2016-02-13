@@ -145,6 +145,6 @@ Base font size rem values are calculated with.
 
 #### `conversion-character`
 
-Default: /
+Default: `/`
 
-the character used for unit conversion, don't wrap in quotes, e.g. change / to ->
+the character used for unit conversion, don't wrap in quotes, e.g. change `/` to `->`
