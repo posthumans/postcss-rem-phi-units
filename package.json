@@ -16,7 +16,8 @@
     "lint": "npm-run-all lint:**",
     "lint:eslint": "eslint ./postcss-rem-phi-units.js",
     "lint:happiness": "happiness ./postcss-rem-phi-units.js",
-    "test": "ava --verbose"
+    "test": "npm-run-all lint ava",
+    "ava": "ava --verbose"
   },
   "devDependencies": {
     "ava": "^0.11.0",
