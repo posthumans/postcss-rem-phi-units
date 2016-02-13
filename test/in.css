@@ -1,0 +1,9 @@
+.test {
+	width: 160px/rem;
+
+	padding: 1phi;
+	margin: 2phi;
+
+	padding: 1phi/rem;
+	margin: 2phi/em;
+}

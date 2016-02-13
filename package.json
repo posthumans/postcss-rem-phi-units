@@ -1,6 +1,6 @@
 {
   "name": "postcss-rem-phi-units",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Extra units for easy rem and phi based layouts",
   "main": "postcss-rem-phi-units.js",
   "author": "Kezz Bracey",
@@ -11,5 +11,11 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/posthumans/postcss-rem-phi-units.git"
+  },
+  "scripts": {
+    "test": "ava --verbose"
+  },
+  "devDependencies": {
+    "ava": "^0.11.0"
   }
 }
