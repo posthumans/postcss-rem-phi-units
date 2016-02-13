@@ -7,6 +7,6 @@ test('Settingless units', async t => {
 	postcss(plugin)
 		.process(readFileSync('in.css'))
 		.then(result =>
-			t.same(result.css, readFileSync('expected.css', 'utf8'));
+			t.same(result.css, readFileSync('expected.css', 'utf8'))
 		);
 });
