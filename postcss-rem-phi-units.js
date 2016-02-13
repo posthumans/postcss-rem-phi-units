@@ -1,8 +1,5 @@
 var postcss = require('postcss');
 
-// Set value of phi
-var phi = 1.618;
-
 // Make these variables global
 var base_font_size;
 var precision;
@@ -28,30 +25,23 @@ var pxRemReplace = function ($1) {
 	// toFixed() is used so we don't have too many decimal points
 	// parseFloat() is applied to the resulting value so any trailing 0 decimals are removed
 	// Then a rem unit is appended at the end
-	return parseFloat( ( parseFloat($1) / base_font_size ).toFixed(precision) ) + 'rem';
+	return parseFloat((parseFloat($1) / base_font_size).toFixed(precision)) + 'rem';
 };
 
-var pxEmReplace = function ($1) {
-	return parseFloat( ( parseFloat($1) / base_font_size ).toFixed(precision) ) + 'em';
-};
-
-function escapeRegExp(str) {
-	return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+function escapeRegExp (str) {
+	return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
 }
 
-module.exports = postcss.plugin('remphiunits', function remphiunits(options) {
-
+module.exports = postcss.plugin('remphiunits', function remphiunits (options) {
 	return function (css) {
-
 		// Set syntax for conversion units from settings, or go to defaults
 		options = options || {};
 		var convert_all_px = options['convert-all-px'] || false;
 		precision = options['precision'] || 3;
 		base_font_size = options['base-font-size'] || 16;
 		conversion_character = options['conversion-character'] || '/';
-				console.log(conversion_character)
 
-		conversion_character_escaped = escapeRegExp(conversion_character);
+		var conversion_character_escaped = escapeRegExp(conversion_character);
 
 		/*
 		* Allow the options to be overridden with at rules
@@ -67,18 +57,17 @@ module.exports = postcss.plugin('remphiunits', function remphiunits(options) {
 		css.walkAtRules('remphiunits', function (rule) {
 			rule.params = rule.params.split(' ');
 
-			if (rule.params[0] == 'convert-all-px') {
+			if (rule.params[0] === 'convert-all-px') {
 				convert_all_px = rule.params[1];
 			}
-			if (rule.params[0] == 'precision') {
+			if (rule.params[0] === 'precision') {
 				precision = rule.params[1];
 			}
-			if (rule.params[0] == 'base-font-size') {
+			if (rule.params[0] === 'base-font-size') {
 				base_font_size = rule.params[1];
 			}
-			if (rule.params[0] == 'conversion-character') {
+			if (rule.params[0] === 'conversion-character') {
 				conversion_character = rule.params[1];
-				console.log(conversion_character)
 				conversion_character_escaped = escapeRegExp(conversion_character);
 			}
 
@@ -88,12 +77,13 @@ module.exports = postcss.plugin('remphiunits', function remphiunits(options) {
 		// Setup conversion unit syntax and regex's we'll use later
 
 		// If convert-all-px option is set to true, make the syntax for px_to_rem 'px' so all px units will be converted
-		if (convert_all_px){
-			var px_to_rem = 'px';
-			var px_to_rem_regex = new RegExp(get_value + 'px', 'ig');
+		var px_to_rem, px_to_rem_regex;
+		if (convert_all_px) {
+			px_to_rem = 'px';
+			px_to_rem_regex = new RegExp(get_value + 'px', 'ig');
 		} else {
-			var px_to_rem = 'px' + conversion_character + 'rem';
-			var px_to_rem_regex = new RegExp(get_value + 'px' + conversion_character_escaped + 'rem', 'ig');
+			px_to_rem = 'px' + conversion_character + 'rem';
+			px_to_rem_regex = new RegExp(get_value + 'px' + conversion_character_escaped + 'rem', 'ig');
 		}
 
 		/* This can't be implemented without a way to pass the current element's font size to the em calculation */
@@ -116,9 +106,7 @@ module.exports = postcss.plugin('remphiunits', function remphiunits(options) {
 
 		// Convert the rest of the units
 		css.walkRules(function (rule) {
-
-			rule.walkDecls(function (decl, i) {
-
+			rule.walkDecls(function (decl) {
 				var value = decl.value;
 
 				/* This can't be implemented without a way to pass the current element's font size to the em calculation */
@@ -133,47 +121,33 @@ module.exports = postcss.plugin('remphiunits', function remphiunits(options) {
 				// }
 
 				// If using the syntax for px to rem
-				if (value.indexOf( px_to_rem ) !== -1) {
-
+				if (value.indexOf(px_to_rem) !== -1) {
 					// Run the replacement on this value
 					decl.value = value.replace(px_to_rem_regex, pxRemReplace);
-
 				}
 
 				// If using any of the phi conversion syntaxes
-				if (value.indexOf( phi_default ) !== -1) {
-
+				if (value.indexOf(phi_default) !== -1) {
 					// If using the syntax for phi to em value
-					if (value.indexOf( phi_to_em ) !== -1) {
-
+					if (value.indexOf(phi_to_em) !== -1) {
 						// Run the replacement on this value
 						decl.value = value.replace(phi_to_em_regex, phiEmReplace);
 
 					// If using the default syntax or phi to rem syntax
 					} else {
-
 						// If using the phi to rem syntax
-						if (value.indexOf( phi_to_rem ) !== -1) {
-
+						if (value.indexOf(phi_to_rem) !== -1) {
 							// Run the replacement on this value
 							decl.value = value.replace(phi_to_rem_regex, phiRemReplace);
 
 						// Else if using the default syntax
 						} else {
-
 							// Run the replacement on this value
 							decl.value = value.replace(phi_default_regex, phiRemReplace);
-
 						}
-
 					}
-
 				}
-
 			});
-
 		});
-
-	}
-
+	};
 });

@@ -1,5 +1,5 @@
 import test from 'ava';
-import plugin from '../postcss-rem-phi-units'
+import plugin from '../postcss-rem-phi-units';
 import postcss from 'postcss';
 import { readFileSync } from 'fs';
 
