@@ -148,3 +148,5 @@ Base font size rem values are calculated with.
 Default: `/`
 
 the character used for unit conversion, don't wrap in quotes, e.g. change `/` to `->`
+
+[![js-happiness-style](https://cdn.rawgit.com/JedWatson/happiness/master/badge.svg)](https://github.com/JedWatson/happiness)
