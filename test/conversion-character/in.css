@@ -1,0 +1,5 @@
+@remphiunits conversion-character ->;
+
+.test {
+	width: 10px->rem;
+}

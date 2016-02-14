@@ -1,0 +1,5 @@
+@remphiunits precision 5;
+
+.test {
+	width: 3px/rem;
+}
