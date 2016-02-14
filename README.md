@@ -1,7 +1,7 @@
 # PostCSS Rem Phi Units
 
 [![Build Status](https://travis-ci.org/posthumans/postcss-rem-phi-units.svg?branch=master)](https://travis-ci.org/posthumans/postcss-rem-phi-units)
-[![Coverage Status](https://coveralls.io/repos/github/posthumans/postcss-rem-phi-units/badge.svg?branch=master)](https://coveralls.io/github/posthumans/postcss-rem-phi-units?branch=master)
+[![codecov.io](https://codecov.io/github/posthumans/postcss-rem-phi-units/coverage.svg?branch=master)](https://codecov.io/github/posthumans/postcss-rem-phi-units?branch=master)
 [![npm](https://img.shields.io/npm/v/postcss-rem-phi-units.svg)]()
 [![David](https://img.shields.io/david/posthumans/postcss-rem-phi-units.svg)]()
 [![David](https://img.shields.io/david/dev/posthumans/postcss-rem-phi-units.svg)]()
