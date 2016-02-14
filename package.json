@@ -16,7 +16,7 @@
     "lint": "npm-run-all lint:**",
     "lint:eslint": "eslint ./postcss-rem-phi-units.js",
     "lint:happiness": "happiness ./postcss-rem-phi-units.js",
-    "test": "npm-run-all lint ava cov",
+    "test": "npm-run-all lint cov",
     "ava": "ava --verbose",
     "cov": "nyc --reporter=text-lcov npm run ava | coveralls"
   },
