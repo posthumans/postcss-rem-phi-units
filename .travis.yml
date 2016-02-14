@@ -3,5 +3,3 @@ node_js:
   - node
 notifications:
   email: false
-after_success:
-  - codecov

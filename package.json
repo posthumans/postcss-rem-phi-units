@@ -18,7 +18,7 @@
     "lint:happiness": "happiness ./postcss-rem-phi-units.js",
     "test": "npm-run-all lint cov",
     "ava": "ava --verbose",
-    "cov": "nyc --reporter=text-lcov npm run ava"
+    "cov": "nyc --reporter=text-lcov npm run ava && codecov"
   },
   "devDependencies": {
     "ava": "^0.11.0",
