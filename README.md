@@ -1,6 +1,7 @@
 # PostCSS Rem Phi Units
 
 [![Build Status](https://travis-ci.org/posthumans/postcss-rem-phi-units.svg?branch=master)](https://travis-ci.org/posthumans/postcss-rem-phi-units)
+[![Coverage Status](https://coveralls.io/repos/github/posthumans/postcss-rem-phi-units/badge.svg?branch=master)](https://coveralls.io/github/posthumans/postcss-rem-phi-units?branch=master)
 
 > [PostCSS](https://github.com/postcss/postcss) plugin to add extra units for easy rem and phi based layouts
 
