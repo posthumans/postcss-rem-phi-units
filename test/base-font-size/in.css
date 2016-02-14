@@ -1,0 +1,5 @@
+@remphiunits base-font-size 32;
+
+.test {
+	width: 10px/rem;
+}
